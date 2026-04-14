@@ -627,14 +627,14 @@
       border: 1px solid var(--border);
       position: relative;
       overflow: hidden;
-      min-height: 400px;
+      min-height: 340px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2.5rem;
+      padding: 3rem 2rem 2rem;
     }
     .tech-canvas::before {
-      content: 'TOP VIEW — CR-26 / 2026 SPEC';
+      content: 'SIDE PROFILE — CR-26 / 2026 SPEC';
       position: absolute;
       top: 1.2rem; left: 1.8rem;
       font-family: var(--mono);
@@ -643,7 +643,7 @@
       letter-spacing: .12em;
     }
     .tech-canvas::after {
-      content: 'DRS ENABLED';
+      content: 'LIVERY REV.4';
       position: absolute;
       top: 1.2rem; right: 1.8rem;
       font-family: var(--mono);
@@ -652,7 +652,7 @@
       letter-spacing: .12em;
     }
 
-    .car-svg { width: 100%; max-width: 580px; filter: drop-shadow(0 0 48px rgba(232,20,42,.12)); }
+    .car-svg { width: 100%; max-width: 760px; filter: drop-shadow(0 8px 32px rgba(0,0,0,.6)); }
 
     @media (max-width: 768px) { .tech-grid { grid-template-columns: 1fr; } }
 
@@ -1139,89 +1139,261 @@
       <div class="spec-row"><span class="spec-l">CFD Hours</span><span class="spec-v">12,847 hrs</span></div>
     </div>
 
-    <!-- Inline F1 car blueprint SVG -->
+    <!-- CR-26 Side Profile SVG -->
     <div class="tech-canvas rr">
-      <svg class="car-svg" viewBox="0 0 680 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CR-26 top-view blueprint">
-        <!-- Shadow -->
-        <ellipse cx="338" cy="245" rx="210" ry="12" fill="rgba(0,0,0,.55)"/>
+      <svg class="car-svg" viewBox="0 0 1100 310" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CR-26 side profile illustration">
+        <defs>
+          <!-- Silver metallic body -->
+          <linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#d4d9e0"/>
+            <stop offset="45%"  stop-color="#b8bfc9"/>
+            <stop offset="100%" stop-color="#7e8694"/>
+          </linearGradient>
+          <!-- Red livery -->
+          <linearGradient id="gRed" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%"   stop-color="#a80d1f"/>
+            <stop offset="100%" stop-color="#e8142a"/>
+          </linearGradient>
+          <!-- Dark wing/floor -->
+          <linearGradient id="gDark" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#18181e"/>
+            <stop offset="100%" stop-color="#0c0c10"/>
+          </linearGradient>
+          <!-- Tyre -->
+          <radialGradient id="gTyre" cx="38%" cy="36%" r="64%">
+            <stop offset="0%"   stop-color="#2c2c2c"/>
+            <stop offset="100%" stop-color="#0d0d0d"/>
+          </radialGradient>
+          <!-- Gold rim -->
+          <radialGradient id="gRim" cx="38%" cy="34%" r="66%">
+            <stop offset="0%"   stop-color="#e0b84a"/>
+            <stop offset="65%"  stop-color="#a07a1e"/>
+            <stop offset="100%" stop-color="#6a5010"/>
+          </radialGradient>
+          <!-- Rear wing dark -->
+          <linearGradient id="gWingR" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#1e1e24"/>
+            <stop offset="100%" stop-color="#101014"/>
+          </linearGradient>
+          <!-- Highlight sheen on body -->
+          <linearGradient id="gSheen" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="rgba(255,255,255,.18)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+          </linearGradient>
+        </defs>
 
-        <!-- Front wing system -->
-        <path d="M65 155 L55 138 L50 118 L58 108 L78 107 L195 112 L195 148 L78 150Z" fill="#0d0d12" stroke="rgba(255,255,255,.11)" stroke-width="1.2"/>
-        <!-- Front wing elements -->
-        <path d="M62 140 L192 136 L192 143 L62 147Z" fill="#E8142A" opacity=".88"/>
-        <path d="M60 128 L192 124 L192 136 L60 140Z" fill="#0b0b10" stroke="rgba(255,255,255,.07)" stroke-width=".8"/>
-        <path d="M62 143 L192 140 L192 148 L62 152Z" fill="#0b0b10" stroke="rgba(255,255,255,.07)" stroke-width=".8"/>
-        <!-- Front wing endplate left -->
-        <path d="M52 108 L65 107 L78 107 L78 152 L65 154 L52 153Z" fill="#111116" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
+        <!-- Ground shadow -->
+        <ellipse cx="548" cy="299" rx="472" ry="10" fill="rgba(0,0,0,.6)"/>
 
-        <!-- Nose -->
-        <path d="M195 112 L238 100 L262 97 L288 100 L288 160 L262 162 L238 160 L195 148Z" fill="#111116" stroke="rgba(255,255,255,.15)" stroke-width="1.3"/>
-        <!-- Nose stripe -->
-        <path d="M196 128 L288 130" stroke="#E8142A" stroke-width="2.8" opacity=".9" stroke-linecap="round"/>
+        <!-- ═══════════ FLOOR ═══════════ -->
+        <rect x="162" y="272" width="105" height="8" fill="url(#gDark)"/>
+        <rect x="272" y="272" width="555" height="8" fill="url(#gDark)"/>
+        <line x1="162" y1="272" x2="267" y2="272" stroke="rgba(255,255,255,.14)" stroke-width=".8"/>
+        <line x1="272" y1="272" x2="827" y2="272" stroke="rgba(255,255,255,.14)" stroke-width=".8"/>
 
-        <!-- Sidepods -->
-        <path d="M288 108 L340 98 L460 100 L520 112 L540 130 L540 152 L520 164 L460 170 L340 168 L288 158Z" fill="#111116" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
-        <!-- Red livery band -->
-        <path d="M288 128 L540 128 L540 136 L288 138Z" fill="#E8142A" opacity=".96"/>
-        <!-- White trim -->
-        <path d="M288 125 L540 124" stroke="rgba(255,255,255,.38)" stroke-width=".8"/>
-        <path d="M288 140 L540 141" stroke="rgba(255,255,255,.14)" stroke-width=".5"/>
+        <!-- ═══════════ REAR DIFFUSER ═══════════ -->
+        <path d="M827,272 C847,272 862,258 878,243 C892,228 905,218 922,210 L928,206 L932,220 L916,228 L900,242 L880,258 L857,272 L827,272 Z" fill="url(#gDark)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <line x1="833" y1="270" x2="852" y2="250" stroke="rgba(255,255,255,.07)" stroke-width="1.2"/>
+        <line x1="845" y1="268" x2="865" y2="244" stroke="rgba(255,255,255,.07)" stroke-width="1.2"/>
+        <line x1="858" y1="264" x2="876" y2="238" stroke="rgba(255,255,255,.07)" stroke-width="1.2"/>
 
-        <!-- Cockpit -->
-        <ellipse cx="388" cy="133" rx="58" ry="26" fill="#0c0c12" stroke="rgba(255,255,255,.18)" stroke-width="1.5"/>
-        <!-- Halo -->
-        <path d="M350 122 Q388 114 426 122" stroke="rgba(255,255,255,.52)" stroke-width="3.8" fill="none" stroke-linecap="round"/>
-        <path d="M358 122 L373 133 L388 135 L403 133 L418 122" stroke="rgba(255,255,255,.2)" stroke-width="1.4" fill="none"/>
+        <!-- ═══════════ FRONT WING ═══════════ -->
+        <!-- Endplate -->
+        <path d="M26,198 L40,192 L40,252 L26,252 Z" fill="url(#gDark)" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+        <!-- Wing mounting arm to nose -->
+        <path d="M40,192 L178,178 L188,175 L188,196 L178,200 L40,212 Z" fill="url(#gDark)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <!-- Wing plane 2 -->
+        <path d="M40,212 L178,200 L178,212 L40,225 Z" fill="#101014" stroke="rgba(255,255,255,.09)" stroke-width=".8"/>
+        <!-- Wing plane 3 -->
+        <path d="M40,225 L178,212 L178,222 L40,237 Z" fill="url(#gDark)" stroke="rgba(255,255,255,.09)" stroke-width=".8"/>
+        <!-- Wing plane 4 (lowest) -->
+        <path d="M40,237 L178,222 L178,232 L40,248 Z" fill="#0e0e12" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
+        <!-- Small Gurney flap on last element -->
+        <line x1="40" y1="248" x2="40" y2="237" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
 
-        <!-- Engine cover -->
-        <path d="M440 100 L520 112 L545 130 L545 152 L520 164 L440 170 L422 163 L422 107Z" fill="#0e0e14" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-        <!-- Engine intake -->
-        <path d="M426 100 L470 98 L470 107 L426 108Z" fill="#090910" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
+        <!-- ═══════════ MAIN BODY (silver) ═══════════ -->
+        <!-- Full body silhouette — upper surface then lower surface -->
+        <path d="
+          M 38,196
+          C 72,190 118,183 160,176
+          C 172,174 180,171 188,168
+          L 248,152
+          L 318,140
+          L 386,133
+          L 470,131
+          L 500,93
+          L 530,131
+          L 580,140
+          L 666,152
+          L 754,166
+          L 814,180
+          L 856,192
+          L 886,204
+          L 912,226
+          L 924,252
+          L 912,262
+          L 888,270
+          C 868,278 845,280 828,275
+          L 827,272
+          L 828,265
+          L 848,268
+          L 870,263
+          L 886,254
+          L 900,238
+          L 908,220
+          L 886,202
+          L 856,190
+          L 814,178
+          L 754,164
+          L 666,150
+          L 580,138
+          L 530,129
+          L 500,91
+          L 470,129
+          L 386,131
+          L 318,138
+          L 248,150
+          L 220,200
+          L 272,200
+          L 272,215
+          L 220,215
+          L 220,272
+          L 272,272
+          L 272,215
+          L 220,215
+          L 188,245
+          C 168,262 128,268 88,258
+          C 65,252 48,228 38,212
+          Z
+        " fill="url(#gBody)" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
 
-        <!-- Rear body -->
-        <path d="M540 112 L586 120 L600 133 L600 148 L586 160 L540 164" fill="#0d0d11" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+        <!-- Body highlight sheen (top edge) -->
+        <path d="M 188,168 L 248,152 L 318,140 L 386,133 L 470,131" stroke="rgba(255,255,255,.28)" stroke-width="1" fill="none" stroke-linecap="round"/>
+        <path d="M 530,131 L 580,140 L 666,152 L 754,166 L 814,180 L 856,192" stroke="rgba(255,255,255,.18)" stroke-width="1" fill="none" stroke-linecap="round"/>
 
-        <!-- Rear wing upper element -->
-        <path d="M586 98 L658 95 L670 103 L670 112 L658 110 L586 113" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1.6"/>
-        <!-- Rear wing lower element -->
-        <path d="M586 113 L672 112 L672 133 L586 133" fill="rgba(232,20,42,.07)" stroke="rgba(232,20,42,.32)" stroke-width="1.5"/>
-        <!-- Rear wing lower -->
-        <path d="M586 150 L658 152 L670 159 L670 168 L658 166 L586 162" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1.6"/>
-        <!-- Rear endplate -->
-        <path d="M655 95 L675 103 L675 168 L655 166Z" fill="#111116" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+        <!-- ═══════════ RED LIVERY ═══════════ -->
+        <!-- Nose tip red (front ~35% of nose) -->
+        <path d="
+          M 38,196
+          C 58,193 82,188 105,184
+          L 105,232
+          C 82,236 58,240 38,240
+          Z
+        " fill="url(#gRed)" stroke="rgba(0,0,0,.1)" stroke-width=".8"/>
+        <!-- Red accent: airbox fin + engine cover spine -->
+        <path d="M 490,93 L 500,78 L 510,93 L 530,131 L 520,133 L 500,96 L 480,133 L 470,131 Z" fill="url(#gRed)" opacity=".9"/>
+        <!-- Red stripe along sidepod upper edge -->
+        <path d="M 318,139 L 580,139 L 580,145 L 318,146 Z" fill="#e8142a" opacity=".75"/>
 
-        <!-- Front tyres (top/bottom) -->
-        <ellipse cx="162" cy="104" rx="24" ry="14" fill="#191919" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
-        <ellipse cx="162" cy="104" rx="13" ry="7"  fill="#111"    stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-        <ellipse cx="162" cy="156" rx="24" ry="14" fill="#191919" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
-        <ellipse cx="162" cy="156" rx="13" ry="7"  fill="#111"    stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+        <!-- ═══════════ SIDEPOD LOWER SHADOW ═══════════ -->
+        <path d="M 248,200 L 720,200 L 720,215 L 820,215 L 820,225 L 248,225 Z" fill="rgba(0,0,0,.25)" stroke="none"/>
 
-        <!-- Rear tyres -->
-        <ellipse cx="528" cy="100" rx="28" ry="16" fill="#191919" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
-        <ellipse cx="528" cy="100" rx="15" ry="8"  fill="#111"    stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-        <ellipse cx="528" cy="160" rx="28" ry="16" fill="#191919" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
-        <ellipse cx="528" cy="160" rx="15" ry="8"  fill="#111"    stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+        <!-- ═══════════ COCKPIT OPENING ═══════════ -->
+        <path d="M 386,133 C 406,127 440,124 470,131 L 456,155 C 440,148 412,146 400,152 Z" fill="#0c0c12" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
 
-        <!-- Suspension arms -->
-        <path d="M192 115 L288 109" stroke="rgba(255,255,255,.1)" stroke-width="1.2"/>
-        <path d="M192 145 L288 153" stroke="rgba(255,255,255,.1)" stroke-width="1.2"/>
-        <path d="M540 116 L575 118" stroke="rgba(255,255,255,.1)" stroke-width="1.2"/>
-        <path d="M540 158 L575 160" stroke="rgba(255,255,255,.1)" stroke-width="1.2"/>
+        <!-- ═══════════ HALO ═══════════ -->
+        <!-- Halo bar -->
+        <path d="M 395,135 C 415,124 455,122 476,133" stroke="rgba(210,215,220,.7)" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <!-- Halo center pillar -->
+        <path d="M 430,138 L 434,120 L 438,138" stroke="rgba(210,215,220,.5)" stroke-width="3" fill="none" stroke-linejoin="round"/>
+        <!-- Halo sheen -->
+        <path d="M 398,134 C 418,124 454,122 474,132" stroke="rgba(255,255,255,.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
 
-        <!-- Annotation — cockpit -->
-        <line x1="388" y1="108" x2="388" y2="78"   stroke="rgba(232,20,42,.35)" stroke-width=".8" stroke-dasharray="3 5"/>
-        <text x="393" y="75" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(232,20,42,.65)">Cockpit / Halo</text>
+        <!-- ═══════════ AIRBOX / ENGINE INTAKE ═══════════ -->
+        <path d="M 470,131 L 474,112 L 500,91 L 526,112 L 530,131 L 516,131 L 500,100 L 484,131 Z" fill="#0f0f14" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+        <!-- Intake mouth (dark opening) -->
+        <path d="M 484,118 L 500,98 L 516,118 L 512,122 L 500,105 L 488,122 Z" fill="#080810"/>
 
-        <!-- Annotation — front wing -->
-        <line x1="130" y1="128" x2="130" y2="80"   stroke="rgba(255,255,255,.18)" stroke-width=".8" stroke-dasharray="3 5"/>
-        <text x="78"  y="77" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(255,255,255,.32)">Front Wing</text>
+        <!-- ═══════════ REAR WING ═══════════ -->
+        <!-- Endplate -->
+        <path d="M 904,112 L 934,118 L 938,244 L 908,238 Z" fill="url(#gDark)" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+        <!-- Main plane (upper) -->
+        <path d="M 820,110 L 930,108 L 934,118 L 824,122 Z" fill="url(#gWingR)" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+        <!-- Flap -->
+        <path d="M 820,122 L 934,118 L 938,132 L 824,135 Z" fill="#E8142A" opacity=".55" stroke="rgba(232,20,42,.4)" stroke-width=".8"/>
+        <!-- Lower element -->
+        <path d="M 824,135 L 938,132 L 938,148 L 824,150 Z" fill="url(#gWingR)" stroke="rgba(255,255,255,.12)" stroke-width=".8"/>
+        <!-- Rear wing pillar -->
+        <path d="M 878,150 L 878,204 L 888,204 L 888,150 Z" fill="#0f0f14" stroke="rgba(255,255,255,.1)" stroke-width=".8"/>
 
-        <!-- Annotation — rear wing -->
-        <line x1="640" y1="112" x2="640" y2="80"   stroke="rgba(255,255,255,.18)" stroke-width=".8" stroke-dasharray="3 5"/>
-        <text x="598" y="77" font-family="JetBrains Mono,monospace" font-size="8" fill="rgba(255,255,255,.32)">Rear Wing</text>
+        <!-- ═══════════ FRONT SUSPENSION ═══════════ -->
+        <line x1="188" y1="196" x2="220" y2="210" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+        <line x1="188" y1="210" x2="220" y2="222" stroke="rgba(255,255,255,.12)" stroke-width="1.2"/>
 
-        <!-- Car designation -->
-        <text x="388" y="138" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" fill="rgba(255,255,255,.22)" text-anchor="middle">CR-26</text>
+        <!-- ═══════════ REAR SUSPENSION ═══════════ -->
+        <line x1="827" y1="198" x2="860" y2="214" stroke="rgba(255,255,255,.12)" stroke-width="1.2"/>
+        <line x1="827" y1="210" x2="858" y2="224" stroke="rgba(255,255,255,.1)"  stroke-width="1"/>
+
+        <!-- ═══════════ FRONT TYRE ═══════════ -->
+        <circle cx="220" cy="237" r="52" fill="url(#gTyre)" stroke="#1a1a1a" stroke-width="1.5"/>
+        <!-- Tyre bands -->
+        <circle cx="220" cy="237" r="43" fill="none" stroke="#1e1e1e" stroke-width="7"/>
+        <circle cx="220" cy="237" r="36" fill="none" stroke="#232323" stroke-width="1"/>
+        <!-- Gold rim -->
+        <circle cx="220" cy="237" r="28" fill="url(#gRim)"/>
+        <!-- Hub -->
+        <circle cx="220" cy="237" r="11" fill="#585858"/>
+        <circle cx="220" cy="237" r="5"  fill="#383838"/>
+        <!-- 5-spoke pattern -->
+        <g stroke="#4a4a4a" stroke-width="5" stroke-linecap="round">
+          <line x1="220" y1="226" x2="220" y2="212"/>
+          <line x1="220" y1="248" x2="220" y2="262"/>
+          <line x1="209" y1="237" x2="195" y2="237"/>
+          <line x1="231" y1="237" x2="245" y2="237"/>
+          <line x1="212" y1="229" x2="202" y2="219"/>
+          <line x1="228" y1="245" x2="238" y2="255"/>
+        </g>
+        <!-- Rim highlight -->
+        <path d="M 204,218 A 28,28 0 0 1 244,228" stroke="rgba(255,255,255,.22)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+        <!-- ═══════════ REAR TYRE ═══════════ -->
+        <circle cx="864" cy="232" r="58" fill="url(#gTyre)" stroke="#1a1a1a" stroke-width="1.5"/>
+        <!-- Tyre bands -->
+        <circle cx="864" cy="232" r="48" fill="none" stroke="#1e1e1e" stroke-width="8"/>
+        <circle cx="864" cy="232" r="40" fill="none" stroke="#232323" stroke-width="1"/>
+        <!-- Gold rim -->
+        <circle cx="864" cy="232" r="30" fill="url(#gRim)"/>
+        <!-- Hub -->
+        <circle cx="864" cy="232" r="12" fill="#585858"/>
+        <circle cx="864" cy="232" r="6"  fill="#383838"/>
+        <!-- 5-spoke pattern -->
+        <g stroke="#4a4a4a" stroke-width="5.5" stroke-linecap="round">
+          <line x1="864" y1="220" x2="864" y2="204"/>
+          <line x1="864" y1="244" x2="864" y2="260"/>
+          <line x1="852" y1="232" x2="836" y2="232"/>
+          <line x1="876" y1="232" x2="892" y2="232"/>
+          <line x1="855" y1="223" x2="844" y2="212"/>
+          <line x1="873" y1="241" x2="884" y2="252"/>
+        </g>
+        <!-- Rim highlight -->
+        <path d="M 845,211 A 30,30 0 0 1 892,224" stroke="rgba(255,255,255,.22)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+        <!-- ═══════════ ANNOTATION LINES ═══════════ -->
+        <!-- Front wing annotation -->
+        <line x1="100" y1="178" x2="100" y2="50" stroke="rgba(255,255,255,.2)" stroke-width=".8" stroke-dasharray="3 5"/>
+        <circle cx="100" cy="178" r="2" fill="rgba(255,255,255,.4)"/>
+        <text x="58" y="44" font-family="JetBrains Mono,monospace" font-size="9.5" fill="rgba(255,255,255,.38)">FRONT WING</text>
+
+        <!-- Halo annotation -->
+        <line x1="434" y1="120" x2="434" y2="50" stroke="rgba(232,20,42,.45)" stroke-width=".8" stroke-dasharray="3 5"/>
+        <circle cx="434" cy="120" r="2" fill="rgba(232,20,42,.7)"/>
+        <text x="380" y="44" font-family="JetBrains Mono,monospace" font-size="9.5" fill="rgba(232,20,42,.7)">HALO / AIRBOX</text>
+
+        <!-- Rear wing annotation -->
+        <line x1="877" y1="110" x2="877" y2="50" stroke="rgba(255,255,255,.2)" stroke-width=".8" stroke-dasharray="3 5"/>
+        <circle cx="877" cy="110" r="2" fill="rgba(255,255,255,.4)"/>
+        <text x="836" y="44" font-family="JetBrains Mono,monospace" font-size="9.5" fill="rgba(255,255,255,.38)">REAR WING</text>
+
+        <!-- Floor/diffuser annotation -->
+        <line x1="720" y1="272" x2="720" y2="295" stroke="rgba(255,255,255,.18)" stroke-width=".8" stroke-dasharray="3 5"/>
+        <circle cx="720" cy="272" r="2" fill="rgba(255,255,255,.35)"/>
+        <text x="666" y="306" font-family="JetBrains Mono,monospace" font-size="9.5" fill="rgba(255,255,255,.32)">DIFFUSER</text>
+
+        <!-- Wheelbase annotation line -->
+        <line x1="220" y1="290" x2="864" y2="290" stroke="rgba(255,255,255,.12)" stroke-width=".8"/>
+        <line x1="220" y1="286" x2="220" y2="294" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+        <line x1="864" y1="286" x2="864" y2="294" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+        <text x="505" y="306" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(255,255,255,.25)" text-anchor="middle">WB: 3,620 mm</text>
       </svg>
     </div>
   </div>
