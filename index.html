@@ -162,6 +162,20 @@
 
     @media (max-width: 768px) { .nav-links { display: none; } }
 
+    /* ─── HERO KEYFRAMES ─────────────────────────────────────── */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes heroFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes videoFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
     /* ─── HERO ────────────────────────────────────────────────── */
     .hero {
       min-height: 100dvh;
@@ -171,6 +185,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background: var(--bg);
     }
 
     /* Video background */
@@ -183,6 +198,8 @@
       object-position: center;
       filter: saturate(.55) brightness(.42);
       z-index: 0;
+      /* Smooth fade-in once the video is ready */
+      animation: videoFadeIn 1.4s ease both;
     }
 
     /* Inward vignette mask — all 4 edges fade to site background */
@@ -209,6 +226,7 @@
       padding: clamp(3rem, 9vw, 6rem) clamp(1.5rem, 5vw, 4rem);
       max-width: 860px;
       width: 100%;
+      animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
     }
 
     .eyebrow {
@@ -290,6 +308,7 @@
       display: flex;
       gap: 3rem;
       white-space: nowrap;
+      animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
     }
     .hero-kpis::before {
       content: '';
@@ -652,14 +671,39 @@
       letter-spacing: .12em;
     }
 
+    /* Car photo — vignette mask blends studio grey into site background */
+    .car-photo-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 740px;
+    }
+    .car-photo-wrap::before {
+      /* Top + bottom fade */
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        linear-gradient(to bottom, var(--bg-1) 0%, transparent 22%),
+        linear-gradient(to top,    var(--bg-1) 0%, transparent 18%);
+    }
+    .car-photo-wrap::after {
+      /* Left + right fade */
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        linear-gradient(to right, var(--bg-1) 0%, transparent 14%),
+        linear-gradient(to left,  var(--bg-1) 0%, transparent 14%);
+    }
     .car-photo {
       width: 100%;
-      max-width: 720px;
       height: auto;
       display: block;
-      /* Strip the white studio background — mix-blend-mode makes white transparent */
-      mix-blend-mode: screen;
-      filter: brightness(1.05) contrast(1.08) saturate(1.1);
+      filter: brightness(.96) contrast(1.06) saturate(1.12);
     }
 
     @media (max-width: 768px) { .tech-grid { grid-template-columns: 1fr; } }
@@ -937,7 +981,7 @@
   <div class="hero-mask" aria-hidden="true"></div>
 
   <!-- Centred content -->
-  <div class="hero-content r">
+  <div class="hero-content">
     <div class="eyebrow">Formula 1 Constructor — Est. 2019</div>
     <h1 class="hero-title">
       Built<br>to<br><em>Win.</em>
@@ -955,7 +999,7 @@
   </div>
 
   <!-- KPIs pinned to bottom -->
-  <div class="hero-kpis r d3">
+  <div class="hero-kpis">
     <div>
       <div class="kpi-val">3rd</div>
       <div class="kpi-lbl">Constructors</div>
@@ -1149,7 +1193,9 @@
 
     <!-- CR-26 Photo -->
     <div class="tech-canvas rr">
-      <img class="car-photo" src="myf1car.png" alt="CR-26 side profile — 2026 livery" />
+      <div class="car-photo-wrap">
+        <img class="car-photo" src="myf1car.png" alt="CR-26 side profile — 2026 livery" />
+      </div>
       <svg style="display:none" viewBox="0 0 1100 310" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CR-26 side profile illustration">
         <defs>
           <!-- Silver metallic body -->
