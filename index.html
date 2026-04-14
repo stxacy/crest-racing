@@ -631,7 +631,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 3rem 2rem 2rem;
+      padding: 3.5rem 2.5rem 2.5rem;
     }
     .tech-canvas::before {
       content: 'SIDE PROFILE — CR-26 / 2026 SPEC';
@@ -652,7 +652,15 @@
       letter-spacing: .12em;
     }
 
-    .car-svg { width: 100%; max-width: 760px; filter: drop-shadow(0 8px 32px rgba(0,0,0,.6)); }
+    .car-photo {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      display: block;
+      /* Strip the white studio background — mix-blend-mode makes white transparent */
+      mix-blend-mode: screen;
+      filter: brightness(1.05) contrast(1.08) saturate(1.1);
+    }
 
     @media (max-width: 768px) { .tech-grid { grid-template-columns: 1fr; } }
 
@@ -1139,9 +1147,10 @@
       <div class="spec-row"><span class="spec-l">CFD Hours</span><span class="spec-v">12,847 hrs</span></div>
     </div>
 
-    <!-- CR-26 Side Profile SVG -->
+    <!-- CR-26 Photo -->
     <div class="tech-canvas rr">
-      <svg class="car-svg" viewBox="0 0 1100 310" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CR-26 side profile illustration">
+      <img class="car-photo" src="myf1car.png" alt="CR-26 side profile — 2026 livery" />
+      <svg style="display:none" viewBox="0 0 1100 310" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CR-26 side profile illustration">
         <defs>
           <!-- Silver metallic body -->
           <linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1">
