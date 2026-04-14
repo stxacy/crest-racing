@@ -678,26 +678,54 @@
       max-width: 740px;
     }
     .car-photo-wrap::before {
-      /* Top + bottom fade */
+      /* Top + bottom fade — wide multi-stop for smooth curve */
       content: '';
       position: absolute;
       inset: 0;
       z-index: 2;
       pointer-events: none;
       background:
-        linear-gradient(to bottom, var(--bg-1) 0%, transparent 22%),
-        linear-gradient(to top,    var(--bg-1) 0%, transparent 18%);
+        linear-gradient(to bottom,
+          var(--bg-1)                    0%,
+          rgba(17,17,22,.92)            6%,
+          rgba(17,17,22,.72)           12%,
+          rgba(17,17,22,.45)           20%,
+          rgba(17,17,22,.18)           30%,
+          transparent                  42%
+        ),
+        linear-gradient(to top,
+          var(--bg-1)                    0%,
+          rgba(17,17,22,.88)            5%,
+          rgba(17,17,22,.62)           10%,
+          rgba(17,17,22,.35)           18%,
+          rgba(17,17,22,.12)           28%,
+          transparent                  38%
+        );
     }
     .car-photo-wrap::after {
-      /* Left + right fade */
+      /* Left + right fade — wide multi-stop for smooth curve */
       content: '';
       position: absolute;
       inset: 0;
       z-index: 2;
       pointer-events: none;
       background:
-        linear-gradient(to right, var(--bg-1) 0%, transparent 14%),
-        linear-gradient(to left,  var(--bg-1) 0%, transparent 14%);
+        linear-gradient(to right,
+          var(--bg-1)                    0%,
+          rgba(17,17,22,.9)             4%,
+          rgba(17,17,22,.65)            9%,
+          rgba(17,17,22,.38)           16%,
+          rgba(17,17,22,.14)           24%,
+          transparent                  35%
+        ),
+        linear-gradient(to left,
+          var(--bg-1)                    0%,
+          rgba(17,17,22,.9)             4%,
+          rgba(17,17,22,.65)            9%,
+          rgba(17,17,22,.38)           16%,
+          rgba(17,17,22,.14)           24%,
+          transparent                  35%
+        );
     }
     .car-photo {
       width: 100%;
